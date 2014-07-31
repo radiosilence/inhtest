@@ -1,0 +1,4 @@
+#!/bin/bash
+python manage.py reset_db --noinput && \
+python manage.py syncdb --noinput && \
+python manage.py testuser
