@@ -26,3 +26,7 @@ class Person(PolymorphicModel):
 
 class Cyclist(Person):
     skill = models.PositiveIntegerField()
+
+
+class Driver(Person):
+    anger = models.PositiveIntegerField()

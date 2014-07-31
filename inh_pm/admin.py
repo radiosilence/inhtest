@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from inh_pm.models import Bicycle, Person, Vehicle, Cyclist
+from inh_pm.models import Bicycle, Person, Vehicle, Cyclist, Driver, Car
 
 
 class PersonInline(admin.TabularInline):
@@ -13,9 +13,17 @@ class VehicleAdmin(admin.ModelAdmin):
 class CyclistInline(admin.TabularInline):
     model = Cyclist
 
+
+class DriverInline(admin.TabularInline):
+    model = Driver
+
 class BicycleAdmin(admin.ModelAdmin):
     inlines = [CyclistInline]
 
+class CarAdmin(admin.ModelAdmin):
+    inlines = [DriverInline]
+
 admin.site.register(Vehicle, VehicleAdmin)
 admin.site.register(Bicycle, BicycleAdmin)
+admin.site.register(Car, CarAdmin)
 
