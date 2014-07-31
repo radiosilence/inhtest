@@ -12,10 +12,14 @@ class VehicleAdmin(admin.ModelAdmin):
 
 class CyclistInline(admin.TabularInline):
     model = Cyclist
+    fk_name = 'transport'
+    readonly_fields = ['person_ptr']
 
 
 class DriverInline(admin.TabularInline):
     model = Driver
+    fk_name = 'transport'
+    readonly_fields = ['person_ptr']
 
 class BicycleAdmin(admin.ModelAdmin):
     inlines = [CyclistInline]
